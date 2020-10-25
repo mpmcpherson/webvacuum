@@ -99,9 +99,7 @@
 
 		document.addEventListener('keydown', function(input)
 		{
-			console.log("keypress");
-			console.log(input);
-
+			
 			if(input.key==="ArrowLeft")
 				{
 					getRequest('getPrevious.php',
