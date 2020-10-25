@@ -7,8 +7,8 @@
 <body>
 	<div id="container">
 		<div id="title"><h1>Something Theoretically Positive</h1></div>
-		<div id="image" style="width: 100%;">
-			<img id="comic" src="./comics/sp20011219.gif" width="100%" />
+		<div id="image" class="main_image">
+			<img id="comic" class ="main_image" src="./comics/sp20011219.gif"/>
 		</div>
 		<div class="button-tray">
 			<div id="first" class="buttons">first</div>
@@ -99,7 +99,7 @@
 
 		document.addEventListener('keydown', function(input)
 		{
-			
+
 			if(input.key==="ArrowLeft")
 				{
 					getRequest('getPrevious.php',
