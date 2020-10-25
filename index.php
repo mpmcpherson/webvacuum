@@ -30,8 +30,13 @@
 	let current = document.getElementById('current');
 	let resultDiv = document.getElementById('comic');
 
+	
+
+
 	resultDiv.src = getCookie("location");
- 
+	
+
+
 	back.addEventListener('click', function() {
 
 		getRequest('getPrevious.php',
@@ -91,6 +96,39 @@
   			null);
   		
 	});
+
+		document.addEventListener('keydown', function(input)
+		{
+			console.log("keypress");
+			console.log(input);
+
+			if(input.key==="ArrowLeft")
+				{
+					getRequest('getPrevious.php',
+		  			function(response){
+		  				resultDiv.src = "./comics" + response;
+		  				setCookie("location",resultDiv.src,356);
+		  				scroll(0,0);
+		  			},
+		  			function(response){
+		  				logError(response,resultDiv);
+		  			},
+		  			"res="+resultDiv.src);
+				}
+			if(input.key==="ArrowRight")
+				{
+				getRequest('getNext.php',
+				function(response){
+	  				resultDiv.src = "./comics" + response;
+	  				setCookie("location",resultDiv.src,356);
+	  				scroll(0,0);
+	  			},
+	  			function(response){
+	  				logError(response,resultDiv);
+	  			},
+	  			"res="+resultDiv.src);
+		}
+		});
 
 	function logError(response, targetDiv)
 	{
