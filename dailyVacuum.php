@@ -7,10 +7,10 @@ dateGen();
 function dateGen()
 {
 	//The date that you want to start at.
-	$start = '2020-10-25';
+	$start = date("Y-m-d");
 	 
 	//The date that you want to stop at.
-	$end = '2020-12-31';
+	$end = strtotime("+1 day", date("Y-m-d"));
 	 
 	//We set our counter to the start date.
 	$currentDate = strtotime($start);
