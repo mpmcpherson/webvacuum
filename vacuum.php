@@ -22,16 +22,19 @@ function dateGen()
 	    //Format the timestamp and print it out
 	    //for illustrative purposes.
 	    $formatted = date("mdY", $currentDate);
+	    echo $formatted."\n";
+	    $outputDate = date("Ymd", $currentDate);
+	    echo $outputDate."\n";
 	    $urlString = "https://somethingpositive.net/wp-content/uploads/".date("Y", $currentDate) . "/" . date("m", $currentDate) . "/sp".$formatted;
 	    
 	    sleep(10);
 	    echo $urlString.".png\n";
 
-	    saveIt($urlString.".png",getcwd()."/comics/sp".date("Ymd",$formatted).".png");
+	    saveIt($urlString.".png",getcwd()."/comics/sp".$outputDate.".png");
 	    
 	    sleep(10);
 	    echo $urlString .".gif\n";
-	    saveIt($urlString .".gif",getcwd()."/comics/sp".date("Ymd",$formatted).".gif");
+	    saveIt($urlString .".gif",getcwd()."/comics/sp".$outputDate.".gif");
 	    
 	    //Add one day onto the timestamp / counter.
 	    $currentDate = strtotime("+1 day", $currentDate);
