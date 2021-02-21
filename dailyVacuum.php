@@ -7,10 +7,10 @@ dateGen();
 function dateGen()
 {
 	//The date that you want to start at.
-	$start = '2020-10-25';
+	$start = date("Y-m-d");
 	 
 	//The date that you want to stop at.
-	$end = '2020-12-31';
+	$end = strtotime("+1 day", date("Y-m-d"));
 	 
 	//We set our counter to the start date.
 	$currentDate = strtotime($start);
@@ -22,21 +22,6 @@ function dateGen()
 	    //Format the timestamp and print it out
 	    //for illustrative purposes.
 	    $formatted = date("mdY", $currentDate);
-<<<<<<< HEAD
-	    echo $formatted."\n";
-	    $outputDate = date("Ymd", $currentDate);
-	    echo $outputDate."\n";
-	    $urlString = "https://somethingpositive.net/wp-content/uploads/".date("Y", $currentDate) . "/" . date("m", $currentDate) . "/sp".$formatted;
-	    
-	    sleep(10);
-	    echo $urlString.".png\n";
-
-	    saveIt($urlString.".png",getcwd()."/comics/sp".$outputDate.".png");
-	    
-	    sleep(10);
-	    echo $urlString .".gif\n";
-	    saveIt($urlString .".gif",getcwd()."/comics/sp".$outputDate.".gif");
-=======
 	    //$urlString = "https://somethingpositive.net/wp-content/uploads/".date("Y", $currentDate) . "/" . date("m", $currentDate) . "/sp".$formatted;
 	    
 	    $urlString = "https://somethingpositive.net/wp-content/uploads/".date("Y", $currentDate) . "/" . date("m", $currentDate) . "/sp".$formatted;
@@ -49,7 +34,6 @@ function dateGen()
 	    //sleep(10);
 	    //echo $urlString .".gif\n";
 	    //saveIt($urlString .".gif",getcwd()."/comics/sp".date("Ymd",$formatted).".gif");
->>>>>>> 1414d362dd35858c392c779680933687ad947dbd
 	    
 	    //Add one day onto the timestamp / counter.
 	    $currentDate = strtotime("+1 day", $currentDate);
